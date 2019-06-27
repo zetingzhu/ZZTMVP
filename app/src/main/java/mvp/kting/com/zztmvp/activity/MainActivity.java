@@ -3,9 +3,13 @@ package mvp.kting.com.zztmvp.activity;
 import android.os.Bundle;
 import android.util.Log;
 
+
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.kting.mvplibrary.XBaseActivity;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import mvp.kting.com.zztmvp.R;
@@ -29,20 +33,13 @@ public class MainActivity extends XBaseActivity<IMainView , MainPresenter<IMainV
         setContentView(R.layout.activity_main);
         initView() ;
 
-        String strJson = "{\"HeWeather6\":[{\"basic\":{\"cid\":\"CN101020100\",\"location\":\"上海\",\"parent_city\":\"上海\",\"admin_area\":\"上海\",\"cnty\":\"中国\",\"lat\":\"31.23170662\",\"lon\":\"121.47264099\",\"tz\":\"+8.00\"},\"update\":{\"loc\":\"2019-03-15 09:55\",\"utc\":\"2019-03-15 01:55\"},\"status\":\"ok\",\"now\":{\"cloud\":\"0\",\"cond_code\":\"100\",\"cond_txt\":\"晴\",\"fl\":\"16\",\"hum\":\"56\",\"pcpn\":\"0.0\",\"pres\":\"1024\",\"tmp\":\"16\",\"vis\":\"12\",\"wind_deg\":\"272\",\"wind_dir\":\"西风\",\"wind_sc\":\"0\",\"wind_spd\":\"1\"}}]}" ;
-        MyWeather myWeather = new MyWeather();
-        Gson gson = new Gson();
-        Log.d( TAG ,  "--:" +gson.toJson(myWeather) ) ;
-        myWeather = gson.fromJson( strJson , MyWeather.class );
-//        Log.d( TAG ,  "--:" +gson.toJson(myWeather) ) ;
-
-
-//        Intent intent = new Intent();
-//        intent.setAction("android.intent.action.VIEW");
-//        Uri content_url = Uri.parse("http://admin.vipcare.com/Login/login.html");
-//        intent.setData(content_url);
-//        intent.setClassName("com.tencent.mtt", "com.tencent.mtt.MainActivity");
-//        startActivity(intent);
+        String url = "http://39.108.252.215/xdapp/serverconfig/anqi/gateway.php?cmd=addData&debug=ok&params={%22device_id%22:%22301%22,%22user_token%22:%22f4eaf36cbbcd668455779314543a3d29%22,%22key_token%22:%22aaa%22,%22qr_code%22:%22301%22,%22sign%22:%22dddd%22,%22user_id%22:%2213797745363%22}";
+        try {
+            String deurl = URLDecoder.decode(url,"UTF-8");
+            Log.d(TAG , deurl.toString()) ;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 设置头像背景色 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="oval">
+
+    <stroke
+        android:width="0dp"
+        android:color="#818181"/>
+
+    <solid android:color="#818181"/>
+
+    <size
+        android:width="84dp"
+        android:height="84dp"/>
+
+</shape>

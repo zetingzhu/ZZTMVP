@@ -42,6 +42,6 @@ dependencies {
     // recyclerview
     compile 'com.android.support:recyclerview-v7:25.+'
     // gson
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.gson:gson:2.8.5'
     compile project(':mvplibrary')
 }
